@@ -38,6 +38,8 @@ public class atividade2 {
 					anos[cont] = Integer.parseInt(JOptionPane.showInputDialog("Qual o ano do " + marcas[cont] + " :"));
 					cont++;
 					break;
+				}else if(cont>=TAMANHO) {
+					JOptionPane.showMessageDialog(null, "MEmoria Lotada!");
 				}
 			}
 			case 2: {
