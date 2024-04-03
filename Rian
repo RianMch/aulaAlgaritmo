@@ -1,0 +1,86 @@
+package atividade1;
+
+
+
+import javax.swing.JOptionPane;
+
+public class lista2 {
+//	Faça um algoritmo para cadastro de nomes e telefones de pessoas (no 
+//	máximo 100 pessoas) e que apresente o seguinte menu (com as respectivas 
+//			funcionalidades):
+//			1 – Cadastrar contato 
+//			2 – Buscar contato por nome
+//			3 – Buscar contato por telefone
+//			4 – Sair
+//			Para o cadastro (opção 1), solicitar o nome e o telefone cuidando do fato que não pode 
+//			exceder 100 contatos. Para as buscas (opções 2 e 3) deve mostrar o nome e o telefone de 
+//			acordo com o filtro escolhido. Caso não exista o contato buscado, deve ser apresentada 
+//			uma mensagem indicando a não existência desses contato
+	public static void main(String[] args) {
+		final int Limite = 100;
+		int cont = 0;
+		String[] pessoas = new String[Limite];
+		int[] telefones = new int[Limite];
+		int opc = 0;
+		String menu = "1̲ ̲–̲ ̲C̲a̲d̲a̲s̲t̲r̲a̲r̲ ̲c̲o̲n̲t̲a̲t̲o̲ \n2̲ ̲–̲ ̲B̲u̲s̲c̲a̲r̲ ̲c̲o̲n̲t̲a̲t̲o̲ ̲p̲o̲r̲ ̲n̲o̲m̲e̲ \n3̲ ̲–̲ ̲B̲u̲s̲c̲a̲r̲ ̲c̲o̲n̲t̲a̲t̲o̲ ̲p̲o̲r̲ ̲t̲e̲l̲e̲f̲o̲n̲e̲ \n4̲ ̲–̲ ̲S̲a̲i̲r̲";
+
+		do {
+			opc = Integer.parseInt(JOptionPane.showInputDialog(menu));
+			switch (opc) {
+			case 1:
+
+				if (cont < Limite) {
+					String pessoa = JOptionPane.showInputDialog(" Cadastrar nome:");
+					int telefone = Integer
+							.parseInt(JOptionPane.showInputDialog("Cadastrar telefone do(a) " + pessoa + " :"));
+					pessoas[cont] = pessoa;
+					telefones[cont] = telefone;
+					JOptionPane.showMessageDialog(null, "Cadastro concluido!");
+					cont++;
+					break;
+				} else {
+					JOptionPane.showMessageDialog(null, "Memoria cheira!");
+					break;
+
+				}
+			case 2: {
+				String buscarNome = JOptionPane
+						.showInputDialog("Buscando Telefone atraves do nome.\n Por favor Digite o nome:");
+				boolean encontrou = false;
+				for (int i = 0; i < cont; i++) {
+					if (pessoas[i].equalsIgnoreCase(buscarNome)) {
+						JOptionPane.showMessageDialog(null,
+								"Nome está cadastrado\n Nome:" + pessoas[i] + "\n Telefone: " + telefones[i]);
+						encontrou = true;
+						break;
+					}
+
+				}
+				if (!encontrou)
+					JOptionPane.showMessageDialog(null, "Nome Não encontrado!");
+				break;
+
+			}
+			case 3: {
+				int buscarNumero = Integer.parseInt(JOptionPane
+						.showInputDialog("Buscando Nome atraves do Telefone.\n Por favor Digite o Telefone:"));
+				boolean encontrou = false;
+				for (int i = 0; i < cont; i++) {
+					if (buscarNumero == telefones[i]) {
+						JOptionPane.showMessageDialog(null,
+								"Nome está cadastrado\n Nome:" + pessoas[i] + "\n Telefone: " + telefones[i]);
+						encontrou = true;
+						break;
+					}
+					if (!encontrou) {
+						JOptionPane.showMessageDialog(null, "Telefone Não encontrado!");
+					}
+
+				}
+			}
+			}
+
+		} while (opc != 4);
+	}
+}
+  
