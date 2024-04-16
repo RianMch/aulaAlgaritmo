@@ -16,7 +16,7 @@ public class atividade2 {
 //	cadastrados. A opção 1 do menu deve cadastrar um carro por vez.
 	public static void main(String[] args) {
 		int opc = 0;
-		final int TAMANHO = 100;
+		final int TAMANHO = 10;
 		// modelos dos carros
 		String[] marcas = new String[TAMANHO];
 		// formatos das placas que possui letras e numeros
